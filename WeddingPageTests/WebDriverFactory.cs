@@ -3,7 +3,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.IE;
-using WeddingPageTests.Variables;
+using WeddingPageTests.Config;
 
 namespace WeddingPageTests
 {
