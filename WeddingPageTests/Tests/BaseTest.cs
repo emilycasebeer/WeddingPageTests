@@ -1,7 +1,4 @@
-using Microsoft.Extensions.Configuration;
 using OpenQA.Selenium;
-using WeddingPageTests.Variables;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace WeddingPageTests.Tests
 {
