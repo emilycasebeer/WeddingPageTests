@@ -4,6 +4,6 @@ namespace WeddingPageTests
 {
     public class DriverHelper
     {
-        public IWebDriver Driver { get; set; }
+        protected IWebDriver Driver;
     }
 }

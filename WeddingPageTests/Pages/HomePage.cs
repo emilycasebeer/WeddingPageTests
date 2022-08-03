@@ -2,26 +2,22 @@
 
 namespace WeddingPageTests.Pages
 {
-    public class HomePage : DriverHelper
+    public class HomePage : TopNavbar
     {
-        IWebElement faqLink => Driver.FindElement(By.LinkText("/wedding/emilyjake2022/faq"));
-
-        IWebElement rsvpLink => Driver.FindElement(By.LinkText("/wedding/emilyjake2022/rsvp"));
-
         public HomePage(IWebDriver driver)
         {
             Driver = driver;
         }
 
-        public string GetPageTitle()
+        public string GetHeaderTitle()
         {
             return Driver.FindElement(By.XPath("//h1[@id='public-page-title']/a")).Text;
         }
 
         public string GetName(int Num)
         {
-            string firstInitial = Driver.FindElement(By.XPath($"//h1[@class='name-{Num}']//span[@class='[first-initial']")).Text;
-            string firstRestOfName = Driver.FindElement(By.XPath($"//h1[@class='name-{Num}']//span[@class='full-first- name']")).Text;
+            string firstInitial = Driver.FindElement(By.XPath($"//h1[@class='name-{Num}']//span[@class='first-initial']")).Text;
+            string firstRestOfName = Driver.FindElement(By.XPath($"//h1[@class='name-{Num}']//span[@class='full-first-name']")).Text;
 
             string lastInitial = Driver.FindElement(By.XPath($"//h1[@class='name-{Num}']//span[@class='last-initial']")).Text;
             string lastRestOfName = Driver.FindElement(By.XPath($"//h1[@class='name-{Num}']//span[@class='full-last-name']")).Text;
@@ -30,16 +26,6 @@ namespace WeddingPageTests.Pages
             String last = lastInitial + lastRestOfName;
 
             return first + " " + last;
-        }
-
-        public void ClickFAQLink()
-        {
-            faqLink.Click(); 
-        }
-
-        public void ClickRSVPLink()
-        {
-            rsvpLink.Click();
         }
     }
 }

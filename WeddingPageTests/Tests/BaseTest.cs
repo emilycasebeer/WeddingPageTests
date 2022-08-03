@@ -1,4 +1,7 @@
-using OpenQA.Selenium.Chrome;
+using Microsoft.Extensions.Configuration;
+using OpenQA.Selenium;
+using WeddingPageTests.Variables;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace WeddingPageTests.Tests
 {
@@ -6,18 +9,23 @@ namespace WeddingPageTests.Tests
     {
 
         [SetUp]
-        public void Setup()
+        public virtual void Setup()
         {
-            Console.WriteLine("Setup");
-            Driver = new ChromeDriver();
-            Driver.Manage().Window.Maximize();
+            Driver = GetDriver();
             Driver.Navigate().GoToUrl("https://www.zola.com/wedding/emilyjake2022");
         }
 
         [TearDown]
-        public void TearDown()
+        public virtual void TearDown()
         {
             Driver.Quit();
         }
+
+        protected virtual IWebDriver GetDriver()
+        {
+            return WebDriverFactory.Create();
+        }
+
+
     }
 }
